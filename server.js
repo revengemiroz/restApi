@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const person = require('./models/person')
 const app = express()
 const bodyParser = require('body-parser')
-
+const port = process.env.PORT || 8000
 //all the routes
 const getRoutes = require('./routes/get')
 const postRoutes = require('./routes/post')
@@ -41,6 +41,6 @@ app.use('/person', postRoutes)
 app.use('/person', deleteRoutes)
 app.use('/person', updateRoutes)
 
-app.listen(8000, () => {
-    console.log('server started')
+app.listen(port, () => {
+    console.log('server started on ' + port)
 })
